@@ -32,7 +32,7 @@ class CartController < ApplicationController
 
   	@order.subtotal = sum
   	@order.sales_tax = sum * 0.07
-  	@order.grand_total = sum + @order.salex_tax
+  	@order.grand_total = sum + @order.sales_tax
   	@order.save
 
   	@line_items.each do |line_item|

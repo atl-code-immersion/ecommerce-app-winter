@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Subtotal</th>
-      <th>Salex tax</th>
+      <th>Sales tax</th>
       <th>Grand total</th>
       <th>User</th>
       <th>Order items</th>
@@ -18,7 +18,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.subtotal %></td>
-        <td><%= order.salex_tax %></td>
+        <td><%= order.sales_tax %></td>
         <td><%= order.grand_total %></td>
         <td><%= order.user_id %></td>
         <td><%= order.order_items %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216150708) do
+ActiveRecord::Schema.define(version: 20160216185518) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160216150708) do
 
   create_table "orders", force: :cascade do |t|
     t.decimal  "subtotal"
-    t.decimal  "salex_tax"
+    t.decimal  "sales_tax"
     t.decimal  "grand_total"
     t.integer  "user_id"
     t.text     "order_items"

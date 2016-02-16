@@ -1,13 +1,20 @@
 <h2>My Cart</h2>
 
-<div>
-	<% @line_items.each do |line_item| %>
-		<li><%= line_item.product.name %></li>
-		<li><%= number_to_currency line_item.product.price %></li>
-		<li>Qty: <%= line_item.quantity %></li>
-		<li>Subtotal: <%= line_item.line_item_total %></li>
-	<% end %>
-</div>
+<% @line_items.each do |line_item| %>
+	<div class="row">
+		<div class="well short-well">
+			<div class="col-md-4">
+				<h3><%= line_item.product.name %></h3>
+				<p><%= number_to_currency line_item.product.price %></p>
+				<p>Qty: <%= line_item.quantity %></p>
+				<p>Subtotal: <%= number_to_currency line_item.line_item_total %></p>
+			</div>
+			<div class="col-md-2 col-md-offset-3">
+				<%= image_tag line_item.product.image.url, width: "200" %>
+			</div>
+		</div>
+	</div>		
+<% end %>
 
 <div>
 	<%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
