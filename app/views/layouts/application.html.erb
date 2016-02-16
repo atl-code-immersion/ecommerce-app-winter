@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Grochazon</title>
+	<% if current_page?(products_path) %>
+		<title>Grochazon Backroom</title>
+	<% else %>
+	  <title>Welcome to Grochazon</title>
+  <% end %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -26,18 +30,23 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse by Category <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <!-- <li><a href="#">Action</a></li> -->
+	            <% @categories.each do |category| %>
+	            	<li><%= link_to category.name, categorical_path(cat_id: category.id) %></li>
+	            <% end %>
 	          </ul>
 	        </li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse by Brand <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <!-- <li><a href="#">Action</a></li> -->
+	            <% @brands.each do |brand| %>
+	            	<li><%= link_to brand, branding_path(brand: brand) %></li>
+	            <% end %>
 	          </ul>
 	        </li>
 	      </ul>
 	      
 	      <ul class="nav navbar-nav navbar-right">
+	      	<li><%= link_to "View Cart", view_order_path %></li>
 	        <% if user_signed_in? %>
             <li>
               <%= link_to edit_user_registration_path do %>

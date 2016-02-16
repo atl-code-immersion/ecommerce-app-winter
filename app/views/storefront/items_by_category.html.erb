@@ -1,18 +1,3 @@
-<div class="row">
-	<% @products.each do |product| %>
-		<div class="col-md-4">
-			<div class="well center-it">
-				<h3><%= product.name %></h3>
-				<p><%= image_tag product.image.url, width: "100" %></p>
-				<p><%= number_to_currency product.price %></p>
-				<p><%= link_to product.brand, branding_path(brand: product.brand) %></p>
-				<p><%= link_to product.category.name, categorical_path(cat_id: product.category.id) %></p>
-				<p>
-					<button class="btn btn-info">
-						<span class="glyphicon glyphicon-plus"></span> More Info
-					</button>
-				</p>
-			</div>
-		</div>
-	<% end %>
-</div>
+<h2>All of Our <%= @category.name %></h2>
+
+<%= render 'productdisplay' %>

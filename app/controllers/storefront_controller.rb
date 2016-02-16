@@ -7,11 +7,13 @@ class StorefrontController < ApplicationController
   	# link to this page would be:
   	# <%= link_to product.category.name, categorical_path(cat_id: product.category.id) %>
   	@products = Product.where(category: params[:cat_id])
+    @category = Category.find(params[:cat_id])
   end
 
   def items_by_brand
-  	# link to this page would be:
+  	# link to this page would be something like:
   	# <%= link_to product.brand, branding_path(brand: product.brand) %>
   	@products = Product.where(brand: params[:brand])
+    @brand = params[:brand]
   end
 end
