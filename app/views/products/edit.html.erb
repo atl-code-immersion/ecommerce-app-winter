@@ -1,6 +1,12 @@
-<h1>Editing Product</h1>
+<% if can? :update, @product %>
+  <h1>Editing Product</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+  <%= link_to 'Show', @product %> |
+  <%= link_to 'Back', products_path %>
+<% else %>
+  <p>
+    You need admin access for this page
+  </p>
+<% end %>

@@ -1,5 +1,7 @@
 <h2>My Cart</h2>
-
+<% if @line_items.empty? %>
+	<p>Nothing here yet. Let's get back to shopping!</p>
+<% else %>
 <% @line_items.each do |line_item| %>
 	<div class="row">
 		<div class="well short-well">
@@ -13,9 +15,16 @@
 				<%= image_tag line_item.product.image.url, width: "200" %>
 			</div>
 		</div>
-	</div>		
+		<p><%= link_to "Remove Item from Cart", remove_from_cart_path(id: line_item.id) %></p>
+	</div>
+<% end %>
 <% end %>
 
 <div>
-	<%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+	<p>
+		<%= link_to "Continue Shopping", root_path, class: "btn btn-info" %>
+	</p>
+	<p>
+		<%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+	</p>
 </div>

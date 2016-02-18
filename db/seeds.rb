@@ -8,9 +8,13 @@
 
 categories = Category.create([
 	{ name: 'Computers' },
-	{ name: 'Televisions'}, 
-	{ name: "Phones" }, 
-	{ name: "Consoles"}, 
-	{ name: "Video Games" }, 
-	{ name: 'Kitchen Appliances' } 
+	{ name: 'Televisions'},
+	{ name: "Phones" },
+	{ name: "Consoles"},
+	{ name: "Video Games" },
+	{ name: 'Kitchen Appliances' }
 ])
+
+15.times do
+Product.create({name: Faker::Commerce.product_name, price: Faker::Commerce.price, quantity: rand(5..100), description: Faker::Lorem.paragraph, brand: Faker::Company.name, category_id: rand(1..6), rating: rand(1..10)})
+end

@@ -44,7 +44,7 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      
+
 	      <ul class="nav navbar-nav navbar-right">
 	      	<li><%= link_to "View Cart", view_order_path %></li>
 	        <% if user_signed_in? %>
@@ -69,6 +69,7 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	<p id="notice" class="center-it"><%= notice %></p>
 
 	<% if controller.controller_name == "storefront" %>
 		<div class="jumbotron">
@@ -76,9 +77,10 @@
 		</div>
 	<% end %>
 
+
 	<div class="container">
 		<%= yield %>
 	</div>
-	
+
 </body>
 </html>
